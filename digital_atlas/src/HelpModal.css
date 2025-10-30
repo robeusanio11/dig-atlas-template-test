@@ -1,0 +1,16 @@
+.help-container {
+    position: fixed;
+    background: white;
+    z-index: 2;
+    top: 10vh;
+    left: 20vh;
+    right: 20vh;
+}
+
+.help-content-inactive {
+    display: None;
+}
+
+.help-content-active {
+    display: block;
+}

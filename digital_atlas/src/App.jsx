@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, useMap, Polyline, Polygon } from 'react-leafle
 import './App.css'
 import Menu from './Menu.jsx'
 import TimeSlider from './TimeSlider.jsx'
+import HelpModal from './HelpModal.jsx'
 
 function App() {
   const center = [30, 40]
@@ -63,6 +64,7 @@ function App() {
       </MapContainer>
       <Menu />
       <TimeSlider />
+      <HelpModal />
     </>
   )
 }
