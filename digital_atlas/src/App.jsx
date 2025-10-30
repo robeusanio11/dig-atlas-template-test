@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { MapContainer, TileLayer, useMap, Polyline, Polygon } from 'react-leaflet'
 import './App.css'
 import Menu from './Menu.jsx'
+import TimeSlider from './TimeSlider.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <>
+      <div className='screen'>
         <MapContainer className="mapContainer" center={center} zoom={5} scrollWheelZoom={false}>
           <TileLayer 
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -62,7 +64,8 @@ function App() {
           <Polygon pathOptions={purpleOptions} positions={multiPolygon} />
         </MapContainer>
         <Menu />
-        
+        <TimeSlider />
+      </div>
     </>
   )
 }

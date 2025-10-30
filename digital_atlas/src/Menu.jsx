@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import './Menu.css'
-import { use } from 'react'
+// import { use } from 'react'
 
 function Menu () {
     const [menuActive, setMenuActive] = useState(false)
@@ -22,7 +22,7 @@ function Menu () {
     // }
 
     return (
-        <>  <div className="floating-menu">
+        <>  <div className="menu-container">
                 <button className="menu-button" onClick={toggleMenu}>{menuButtonText}</button>
                 <div className={menuActive ? "menu-content-active" : 'menu-content-inactive'}>
                     <h2>Here is the menu!</h2>
