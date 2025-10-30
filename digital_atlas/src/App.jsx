@@ -5,7 +5,6 @@ import Menu from './Menu.jsx'
 import TimeSlider from './TimeSlider.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
   const center = [30, 40]
 
   const polyline = [
@@ -51,21 +50,19 @@ function App() {
 
   return (
     <>
-      <div className='screen'>
-        <MapContainer className="mapContainer" center={center} zoom={5} scrollWheelZoom={false}>
-          <TileLayer 
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+      <MapContainer className="mapContainer" center={center} zoom={5} scrollWheelZoom={false}>
+        <TileLayer 
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
 
-          <Polyline pathOptions={limeOptions} positions={polyline} />
-          <Polyline pathOptions={limeOptions} positions={multiPolyline} />
-          <Polygon pathOptions={purpleOptions} positions={polygon} />
-          <Polygon pathOptions={purpleOptions} positions={multiPolygon} />
-        </MapContainer>
-        <Menu />
-        <TimeSlider />
-      </div>
+        <Polyline pathOptions={limeOptions} positions={polyline} />
+        <Polyline pathOptions={limeOptions} positions={multiPolyline} />
+        <Polygon pathOptions={purpleOptions} positions={polygon} />
+        <Polygon pathOptions={purpleOptions} positions={multiPolygon} />
+      </MapContainer>
+      <Menu />
+      <TimeSlider />
     </>
   )
 }

@@ -3,17 +3,15 @@ import './Menu.css'
 // import { use } from 'react'
 
 function Menu () {
-    const [menuActive, setMenuActive] = useState(false)
-    const [menuButtonText, setMenuButtonText] = useState('☰')
-    
-    const toggleMenu = () => setMenuActive(!menuActive, () => { this.toggleMenuButton() })
-    
-    useEffect(() => {
-        toggleMenuButton();
-    }, [menuActive])
-
+    const [menuActive, setMenuActive] = useState(true); // checks if menu is active or not
+    const [menuButtonText, setMenuButtonText] = useState('-->'); // button content
+    // toggles menuActive
+    const toggleMenu = () => setMenuActive(!menuActive)
+    // changes menu button content when toggled
+    useEffect(() => { toggleMenuButton(); }, [menuActive])
+    // function to set menu button text
     const toggleMenuButton = () => {
-        setMenuButtonText(menuActive ? '-->' : '☰')
+        setMenuButtonText(menuActive ? '-->' : '☰');
     }
     
     // const handleButtonClick = () => {

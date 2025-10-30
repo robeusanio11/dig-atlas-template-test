@@ -1,3 +1,7 @@
-html {
+/* html {
     scrollbar-width: none;
+} */
+
+body {
+    margin: 0;
 }
