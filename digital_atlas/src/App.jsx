@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { MapContainer, TileLayer, useMap, Polyline, Polygon } from 'react-leaflet'
 import './App.css'
+import Menu from './Menu.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -60,6 +61,7 @@ function App() {
           <Polygon pathOptions={purpleOptions} positions={polygon} />
           <Polygon pathOptions={purpleOptions} positions={multiPolygon} />
         </MapContainer>
+        <Menu />
         
     </>
   )
