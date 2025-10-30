@@ -1,8 +1,15 @@
-.menu_container {
+.floating-menu {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 2;
     background-color: white;
+}
 
+.menu-content-inactive {
+    display: None
+}
+
+.menu-content-active {
+    display: flex;
 }
