@@ -7,9 +7,9 @@
 }
 
 .menu-content-inactive {
-    display: None
+    display: None;
 }
 
 .menu-content-active {
-    display: flex;
+    display: block;
 }

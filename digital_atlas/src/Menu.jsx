@@ -25,8 +25,11 @@ function Menu () {
         <>  <div className="floating-menu">
                 <button className="menu-button" onClick={toggleMenu}>{menuButtonText}</button>
                 <div className={menuActive ? "menu-content-active" : 'menu-content-inactive'}>
-                    <h2>Here is the menu.</h2>
-                    <div>Click something to learn more.</div>
+                    <h2>Here is the menu!</h2>
+                    <h5>Click something to learn more.</h5>
+                    <p>placeholder paragraph</p>
+                    <p>placeholder paragraph</p>
+                    <p>placeholder paragraph</p>
                 </div>
             </div>
         </>
