@@ -11,7 +11,7 @@ function Menu () {
     useEffect(() => { toggleMenuButton(); }, [menuActive])
     // function to set menu button text
     const toggleMenuButton = () => {
-        setMenuButtonText(menuActive ? '-->' : '☰');
+        setMenuButtonText(menuActive ? 'X' : '☰');
     }
     
     // const handleButtonClick = () => {
