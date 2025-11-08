@@ -4,12 +4,14 @@ import './App.css'
 import Menu from './Menu.jsx'
 import TimeSlider from './TimeSlider.jsx'
 import HelpModal from './HelpModal.jsx'
-import '../public/geoJSONstates.json'
+import geoJSONstates from './assets/geoJSONstates.json'
+import geoJSONcountries from './assets/custom.geo.json'
 import fs from 'fs';
 
 function App() {
   const center = [30, 40]
-
+  // geoJSONcountries.GeoJSON
+  
   return (
     <>
       <MapContainer className="mapContainer" center={center} zoom={5} scrollWheelZoom={false}>
@@ -17,6 +19,9 @@ function App() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <GeoJSON data={geoJSONcountries} />
+        <GeoJSON data={geoJSONstates} />
+
       </MapContainer>
       <Menu />
       <TimeSlider />
