@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { MapContainer, TileLayer, useMap, Polyline, Polygon } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Polyline, Polygon, GeoJSON } from 'react-leaflet'
 import './App.css'
 import Menu from './Menu.jsx'
 import TimeSlider from './TimeSlider.jsx'
 import HelpModal from './HelpModal.jsx'
+import '../public/geoJSONstates.json'
+import fs from 'fs';
 
 function App() {
   const center = [30, 40]
