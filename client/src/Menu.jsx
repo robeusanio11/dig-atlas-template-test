@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './Menu.css'
 // import { use } from 'react'
 
-function Menu () {
+function Menu ({selectedState}) {
     const [menuActive, setMenuActive] = useState(true); // checks if menu is active or not
     const [menuButtonText, setMenuButtonText] = useState('-->'); // button content
     // toggles menuActive
@@ -14,24 +14,33 @@ function Menu () {
         setMenuButtonText(menuActive ? 'X' : '☰');
     }
     
-    // const handleButtonClick = () => {
-    //     toggleMenu(); 
-    //     toggleMenuButton();
-    // }
-
-    return (
-        <>  <div className="menu-container">
+    if (selectedState == null) {
+        return (
+            <div className="menu-container">
                 <button className="menu-button" onClick={toggleMenu}>{menuButtonText}</button>
                 <div className={menuActive ? "menu-content-active" : 'menu-content-inactive'}>
-                    <h2>Here is the menu!</h2>
-                    <h5>Click something to learn more.</h5>
+                    <h2>Here is the Menu</h2>
+                    <h5>Click something to find out more</h5>
                     <p>placeholder paragraph</p>
                     <p>placeholder paragraph</p>
                     <p>placeholder paragraph</p>
                 </div>
             </div>
-        </>
     )
+    } else {
+        return (
+                <div className="menu-container">
+                    <button className="menu-button" onClick={toggleMenu}>{menuButtonText}</button>
+                    <div className={menuActive ? "menu-content-active" : 'menu-content-inactive'}>
+                        <h2>{selectedState.name}</h2>
+                        <h5>{selectedState.density}</h5>
+                        <p>placeholder paragraph</p>
+                        <p>placeholder paragraph</p>
+                        <p>placeholder paragraph</p>
+                    </div>
+                </div>
+        )
+    }
 }
 
 export default Menu
