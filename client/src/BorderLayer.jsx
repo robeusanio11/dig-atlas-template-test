@@ -1,9 +1,9 @@
-import { useState, useRef} from 'react'
+import { useState, useRef, useCallback, memo} from 'react'
 import { useMap, GeoJSON } from 'react-leaflet'
 
 function BorderLayer({ geoJSONstates, style, onFeatureHover }) {
   const geoJsonRef = useRef(null);
-  const map = useMap(); // safe here
+  const map = useMap();
 
   const highlightFeature = (e) => {
     e.target.setStyle({
@@ -12,6 +12,7 @@ function BorderLayer({ geoJSONstates, style, onFeatureHover }) {
       dashArray: '',
       fillOpacity: 1
     });
+    e.target.bringToFront();
   };
 
   const resetHighlight = (e) => {
@@ -42,13 +43,14 @@ function BorderLayer({ geoJSONstates, style, onFeatureHover }) {
     const onEachFeature = (feature, layer) => {
         layer.on({
             mouseover: (e) => {
-                onFeatureHover(feature);
-                highlightFeature(e);
+              onFeatureHover(feature);
+              highlightFeature(e);
             },
             mouseout: resetHighlight,
             click: zoomToFeature
         });
     };
+
 
   return (
     <>
@@ -62,4 +64,7 @@ function BorderLayer({ geoJSONstates, style, onFeatureHover }) {
   );
 }
 
-export default BorderLayer
+// memo makes it so component only re-renders when year changes, but not when selected state changes
+export default memo(BorderLayer, (prevProps, nextProps) => {
+  return prevProps.geoJSONstates === nextProps.geoJSONstates;
+});
