@@ -4,9 +4,11 @@ import { MapContainer, TileLayer, useMap, Polyline, Polygon, GeoJSON, LayersCont
 import './App.css'
 import Menu from './Menu.jsx'
 import TimeSlider from './TimeSlider.jsx'
+import EventSidebar from './EventSidebar.jsx'
 // import geoJSONstates from './assets/geoJSONstates.json'
 // import geoJSONstates from './assets/bostockStates.json'
 import geoJSONstates from './assets/statesWithYears.json'
+import events from './assets/events.json'
 import geoJSONcountries from './assets/custom.geo.json'
 import BorderLayer from './BorderLayer.jsx'
 
@@ -70,7 +72,8 @@ function App() {
           onFeatureHover={(feature) => setSelectedState(feature.properties)} />
       </MapContainer>
       <Menu selectedState={selectedState} />
-      <TimeSlider onChangeYear={setYear}/>
+      <TimeSlider year={year} onChangeYear={setYear}/>
+      <EventSidebar events={events} onSelectEvent={(year) => setYear(year)} />
       <button className='home-button' onClick={() => navigate("/")}>Home</button>
     </>
   )

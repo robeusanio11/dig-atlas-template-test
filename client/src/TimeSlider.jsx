@@ -1,31 +1,25 @@
 import { useState } from 'react'
 import './TimeSlider.css'
-function TimeSlider ({ onChangeYear }) {
-    const [year, setYear] = useState(1500)
+function TimeSlider({ year, onChangeYear }) {
+  const handleChange = (e) => {
+    const newYear = e.target.value
+    onChangeYear(newYear) // update parent
+  }
 
-    const handleChange = (e) => {
-        const newYear = e.target.value
-        setYear(newYear)
-        onChangeYear(newYear)
-    }
-
-    return (
-        <>
-        <div className='time-slider-wrapper'>
-            <div className='time-slider-container'>
-                <input 
-                    type='range' 
-                    className="time-slider" 
-                    min ='1500' 
-                    max ='2025'
-                    value={year}
-                    onChange={handleChange}>
-                </input>
-                <p>{year}</p>
-            </div>
-        </div>
-        </>
-    )
+  return (
+    <div className='time-slider-wrapper'>
+      <div className='time-slider-container'>
+        <input 
+          type='range' 
+          className="time-slider" 
+          min='1500' 
+          max='2025'
+          value={year || 1500}  // fallback if year is null
+          onChange={handleChange}
+        />
+        <p>{year || 1500}</p>
+      </div>
+    </div>
+  )
 }
-
-export default TimeSlider
+ export default TimeSlider;
