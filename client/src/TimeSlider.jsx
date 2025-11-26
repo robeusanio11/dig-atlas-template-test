@@ -12,7 +12,7 @@ function TimeSlider({ year, onChangeYear }) {
         <input 
           type='range' 
           className="time-slider" 
-          min='1500' 
+          min='1400' 
           max='2025'
           value={year || 1500}  // fallback if year is null
           onChange={handleChange}
